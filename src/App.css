@@ -1,38 +1,59 @@
-.App {
+.TodoEditor {
+  width: 320px;
+  margin: 0 auto;
+}
+.TodoEditor .todoInput {
+  border-bottom: 1px solid gray;
+}
+.TodoEditor h2 {
+  width: 300px;
   text-align: center;
+  margin: 0 auto;
+  margin-bottom: 10px;
+  padding: 10px;
+  background-color: rgb(212, 211, 211);
 }
-
-.App-logo {
-  height: 40vmin;
-  pointer-events: none;
+.TodoEditor input {
+  width: 260px;
+  margin-right: 3px;
+  margin-left: 3px;
+  height: 20px;
+  margin-bottom: 10px;
 }
-
-@media (prefers-reduced-motion: no-preference) {
-  .App-logo {
-    animation: App-logo-spin infinite 20s linear;
-  }
+.TodoEditor button {
+  height: 27px;
+  font-weight: bold;
 }
-
-.App-header {
-  background-color: #282c34;
-  min-height: 100vh;
+.App {
+  width: 320px;
+  border-top: 1px solid gray;
+  border-left: 1px solid gray;
+  border-right: 1px solid gray;
+  margin: 0 auto;
+}
+.TodoItem {
+  margin-top: 5px;
+  margin-bottom: 1px;
+}
+.TodoItem .flexItem {
   display: flex;
-  flex-direction: column;
-  align-items: center;
-  justify-content: center;
-  font-size: calc(10px + 2vmin);
-  color: white;
+  justify-content: space-between;
 }
-
-.App-link {
-  color: #61dafb;
+.TodoItem input {
+  cursor: pointer;
 }
-
-@keyframes App-logo-spin {
-  from {
-    transform: rotate(0deg);
-  }
-  to {
-    transform: rotate(360deg);
-  }
+.TodoList .Done {
+  border-bottom: 1px solid gray;
+  margin-top: 5px;
+}
+.TodoList h4 {
+  border-bottom: 1px solid gray;
+  margin-top: 5px;
+  margin-bottom: 5px;
+}
+.doneText {
+  border-top: 1px solid gray;
+}
+.doneListText {
+  margin-left: 10px;
 }
