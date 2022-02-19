@@ -20,6 +20,9 @@ function App() {
     const removeList = list.filter((it) => it[1] !== targetIdx);
     setList(removeList);
   };
+  const onEdit = (targetId, editContent) => {
+    setList(list.map((elem) => (elem[1] === targetId ? editContent : elem)));
+  };
   return (
     <div className="App">
       <TodoEditor onCreate={onCreate} />
@@ -28,6 +31,7 @@ function App() {
         onDone={onDone}
         doneList={doneList}
         onRemove={onRemove}
+        onEdit={onEdit}
       ></TodoList>
     </div>
   );

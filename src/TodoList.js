@@ -1,6 +1,6 @@
 import TodoItem from "./TodoItem";
 import TodoDone from "./TodoDone";
-const TodoList = ({ list, onDone, doneList, onRemove }) => {
+const TodoList = ({ list, onDone, doneList, onRemove, onEdit }) => {
   console.log(list);
   return (
     <div className="TodoList">
@@ -13,6 +13,7 @@ const TodoList = ({ list, onDone, doneList, onRemove }) => {
             onDone={onDone}
             doneList={doneList}
             onRemove={onRemove}
+            onEdit={onEdit}
           ></TodoItem>
         ))}
       </div>
