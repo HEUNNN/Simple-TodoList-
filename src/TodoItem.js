@@ -39,30 +39,35 @@ const TodoItem = ({ elem, onDone, onRemove, onEdit }) => {
   */
   return (
     <div className="TodoItem">
-      <div className="flexItem">
-        <div className="item"></div>
-        <div className="content">
-          {isEdit === false ? (
-            <>
-              {" "}
-              <input type="checkbox" onClick={onHandleDone}></input>
-              {elem[0]}
-              <button onClick={onHandleRemove}>삭제</button>
-              <button onClick={toggle}>수정</button>
-            </>
-          ) : (
-            <>
-              <textarea
-                value={editTextArea}
-                onChange={onHandleTextarea}
-                ref={textareaRef}
-              ></textarea>
-              <button onClick={onEditComfirm}>수정 확인</button>
-              <button onClick={onQuitEdit}>수정 취소</button>
-            </>
-          )}
-        </div>
-        <div className="itemBtn"></div>
+      <div className="content">
+        {isEdit === false ? (
+          <>
+            {" "}
+            <input type="checkbox" onClick={onHandleDone}></input>
+            {elem[0]}
+          </>
+        ) : (
+          <>
+            <textarea
+              value={editTextArea}
+              onChange={onHandleTextarea}
+              ref={textareaRef}
+            ></textarea>
+          </>
+        )}
+      </div>
+      <div className="itemBtn">
+        {isEdit ? (
+          <>
+            <button onClick={onEditComfirm}>수정 확인</button>
+            <button onClick={onQuitEdit}>수정 취소</button>
+          </>
+        ) : (
+          <>
+            <button onClick={toggle}>수정</button>
+            <button onClick={onHandleRemove}>삭제</button>
+          </>
+        )}
       </div>
     </div>
   );

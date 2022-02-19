@@ -16,8 +16,8 @@ function App() {
     setDone([NewDoneList, ...doneList]);
   };
 
-  const onRemove = (targetIdx) => {
-    const removeList = list.filter((it) => it[1] !== targetIdx);
+  const onRemove = (targetId) => {
+    const removeList = list.filter((elem) => elem[1] !== targetId);
     setList(removeList);
   };
   const onEdit = (targetId, editContent) => {

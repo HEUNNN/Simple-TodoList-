@@ -32,13 +32,16 @@
   margin: 0 auto;
 }
 .TodoItem {
+  width: 100%;
   margin-top: 5px;
   margin-bottom: 1px;
-}
-.TodoItem .flexItem {
   display: flex;
   justify-content: space-between;
 }
+.TodoItem .itemBtn button {
+  margin-right: 2px;
+}
+
 .TodoItem input {
   cursor: pointer;
 }
