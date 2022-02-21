@@ -1,7 +1,9 @@
-const TodoDone = ({ doneListItem }) => {
+import { FaCheck } from "react-icons/fa";
+const TodoDone = ({ elem }) => {
   return (
     <div className="todoDone">
-      <div>{doneListItem}</div>
+      <FaCheck color="red" />
+      <div>{elem.content}</div>
     </div>
   );
 };

@@ -1,31 +1,26 @@
 import TodoItem from "./TodoItem";
 import TodoDone from "./TodoDone";
-const TodoList = ({ list, onDone, doneList, onRemove, onEdit }) => {
-  console.log(list);
+const TodoList = ({ todolist, onDone, onRemove, onEdit }) => {
+  console.log(todolist);
   return (
     <div className="TodoList">
       <h4>Todo List</h4>
       <div>
-        {list.map((elem) => (
-          <TodoItem
-            elem={elem}
-            key={elem[1]}
-            onDone={onDone}
-            doneList={doneList}
-            onRemove={onRemove}
-            onEdit={onEdit}
-          ></TodoItem>
-        ))}
+        {todolist.map((elem) =>
+          elem.done === false ? (
+            <TodoItem
+              elem={elem}
+              key={elem.id}
+              onDone={onDone}
+              onRemove={onRemove}
+              onEdit={onEdit}
+            ></TodoItem>
+          ) : (
+            <TodoDone elem={elem} key={elem.id} />
+          )
+        )}
       </div>
       <br></br>
-      <h4 className="doneText">Done</h4>
-      <div className="Done">
-        <div className="doneListText">
-          {doneList.map((doneListItem) => (
-            <TodoDone doneListItem={doneListItem} />
-          ))}
-        </div>
-      </div>
     </div>
   );
 };

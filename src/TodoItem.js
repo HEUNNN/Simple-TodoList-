@@ -2,23 +2,22 @@ import TodoDone from "./TodoDone";
 import { useState, useRef } from "react";
 const TodoItem = ({ elem, onDone, onRemove, onEdit }) => {
   const onHandleDone = () => {
-    onDone(elem[0]);
-    onRemove(elem[1]);
+    onDone(elem.id);
   };
   const onHandleRemove = () => {
-    onRemove(elem[1]);
+    onRemove(elem.id);
   };
   const [isEdit, setIsEdit] = useState(false);
-  const toggle = () => {
-    setIsEdit(!isEdit);
-  };
-  const [editTextArea, setEditTextArea] = useState(elem[0]); //수정하기 버튼 눌렀을때 수정 전의 content를 띄워둬야 함
+  const [editTextArea, setEditTextArea] = useState(elem.content); //수정하기 버튼 눌렀을때 수정 전의 content를 띄워둬야 함
   const onHandleTextarea = (e) => {
     setEditTextArea(e.target.value);
   };
   const onQuitEdit = () => {
-    toggle();
-    setEditTextArea(elem[0]);
+    setIsEdit(false);
+    setEditTextArea(elem.content);
+  };
+  const toggle = () => {
+    setIsEdit(!isEdit);
   };
   const textareaRef = useRef();
   const onEditComfirm = () => {
@@ -26,9 +25,9 @@ const TodoItem = ({ elem, onDone, onRemove, onEdit }) => {
       textareaRef.current.focus();
       return;
     }
-    if (window.confirm(`${elem[1]}번째 내용을 수정하시겠습니까?}`)) {
-      onEdit(elem[1], [editTextArea, elem[1]]);
-      toggle();
+    if (window.confirm(`${elem.id}번째 내용을 수정하시겠습니까?}`)) {
+      onEdit(elem.id, editTextArea);
+      setIsEdit(false);
     }
   };
   /*
@@ -44,7 +43,7 @@ const TodoItem = ({ elem, onDone, onRemove, onEdit }) => {
           <>
             {" "}
             <input type="checkbox" onClick={onHandleDone}></input>
-            {elem[0]}
+            {elem.content}
           </>
         ) : (
           <>
